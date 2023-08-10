@@ -1,6 +1,6 @@
 package dev.jianastrero.plugins
 
-import dev.jianastrero.css.font
+import dev.jianastrero.css.fontCss
 import dev.jianastrero.pages.status.notFound
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
@@ -13,7 +13,6 @@ import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
-import kotlinx.css.CSSBuilder
 
 fun Application.configureRouting() {
     install(AutoHeadResponse)
@@ -29,9 +28,7 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello Jian!")
         }
-        get("/font.css") {
-            call.respondCss(CSSBuilder::font)
-        }
+        fontCss()
         // Static plugin. Try to access `/static/index.html`
         static("/static") {
             resources("static")
