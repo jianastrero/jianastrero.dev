@@ -1,6 +1,7 @@
 package dev.jianastrero.plugins
 
 import dev.jianastrero.css.font
+import dev.jianastrero.pages.status.notFound
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
@@ -17,6 +18,9 @@ import kotlinx.css.CSSBuilder
 fun Application.configureRouting() {
     install(AutoHeadResponse)
     install(StatusPages) {
+        status(HttpStatusCode.NotFound) {  call, _ ->
+            call.notFound()
+        }
         exception<Throwable> { call, cause ->
             call.respondText(text = "500: $cause", status = HttpStatusCode.InternalServerError)
         }
