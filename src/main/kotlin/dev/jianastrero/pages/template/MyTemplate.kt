@@ -10,6 +10,7 @@ import kotlinx.html.HTML
 import kotlinx.html.body
 import kotlinx.html.head
 import kotlinx.html.lang
+import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.title
 
@@ -27,6 +28,7 @@ class MyTemplate(val title: String) : Template<HTML> {
             meta(name = "author", content = "Jian Astrero")
             meta(name = "keywords", content = "Jian Astrero, Jian, Astrero, Portfolio, Jian Astrero's Portfolio")
             defineFont()
+            link(rel = "stylesheet", href = "app.css")
             insert(this@MyTemplate.head)
         }
 
