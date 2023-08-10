@@ -1,5 +1,6 @@
 package dev.jianastrero.plugins
 
+import dev.jianastrero.css.appCss
 import dev.jianastrero.css.fontCss
 import dev.jianastrero.pages.status.notFound
 import io.ktor.http.HttpStatusCode
@@ -29,6 +30,7 @@ fun Application.configureRouting() {
             call.respondText("Hello Jian!")
         }
         fontCss()
+        appCss()
         // Static plugin. Try to access `/static/index.html`
         static("/static") {
             resources("static")
