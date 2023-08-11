@@ -13,13 +13,13 @@ import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.title
 
-open class BaseTemplate(
+abstract class BaseTemplate(
     private val title: String = "",
     private val author: String = "Jian Astrero",
     private val keywords: Array<String> = arrayOf("Jian Astrero", "Jian", "Astrero", "Portfolio", "Jian Astrero's Portfolio"),
 ) : Template<HTML> {
 
-    open val head = Placeholder<HEAD>()
+    val head = Placeholder<HEAD>()
     val body = Placeholder<BODY>()
 
     override fun HTML.apply() {
@@ -33,13 +33,22 @@ open class BaseTemplate(
             meta(name = "author", content = author)
             meta(name = "keywords", content = keywords.joinToString(", "))
             link(rel = "stylesheet", href = "app.css")
+            beforeHead()
             insert(this@BaseTemplate.head)
+            afterHead()
         }
 
         body {
+            beforeBody()
             insert(this@BaseTemplate.body)
+            afterBody()
         }
     }
+
+    protected abstract fun HEAD.beforeHead()
+    protected abstract fun HEAD.afterHead()
+    protected abstract fun BODY.beforeBody()
+    protected abstract fun BODY.afterBody()
 
     companion object {
         const val DEFAULT_TITLE = "Jian Astrero's Portfolio"
