@@ -1,4 +1,4 @@
-package dev.jianastrero.templating
+package dev.jianastrero.template
 
 import io.ktor.server.html.Placeholder
 import io.ktor.server.html.Template
@@ -9,7 +9,6 @@ import kotlinx.html.HTML
 import kotlinx.html.body
 import kotlinx.html.head
 import kotlinx.html.lang
-import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.title
 
