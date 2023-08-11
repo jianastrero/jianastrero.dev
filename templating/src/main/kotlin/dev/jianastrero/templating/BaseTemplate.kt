@@ -13,7 +13,7 @@ import kotlinx.html.link
 import kotlinx.html.meta
 import kotlinx.html.title
 
-class BaseTemplate(
+open class BaseTemplate(
     private val title: String = "",
     private val author: String = "Jian Astrero",
     private val keywords: Array<String> = arrayOf("Jian Astrero", "Jian", "Astrero", "Portfolio", "Jian Astrero's Portfolio"),
