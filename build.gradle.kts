@@ -41,11 +41,13 @@ dependencies {
     implementation("io.ktor:ktor-server-cors-jvm")
     implementation("io.ktor:ktor-server-default-headers-jvm")
     implementation("io.ktor:ktor-server-html-builder-jvm")
-    implementation("org.jetbrains:kotlin-css-jvm:1.0.0-pre.129-kotlin-1.4.20")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-css:1.0.0-pre.607")
     implementation("io.ktor:ktor-server-thymeleaf-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("io.ktor:ktor-server-config-yaml:2.3.3")
+    implementation(project(":templating"))
+
     testImplementation("io.ktor:ktor-server-tests-jvm")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
