@@ -1,14 +1,31 @@
 package dev.jianastrero.plugins
 
-import io.ktor.http.*
-import io.ktor.server.application.*
-import io.ktor.server.html.*
-import io.ktor.server.response.*
-import io.ktor.server.routing.*
+import io.ktor.http.ContentType
+import io.ktor.server.application.Application
+import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.call
+import io.ktor.server.application.install
+import io.ktor.server.html.respondHtml
+import io.ktor.server.response.respond
+import io.ktor.server.response.respondText
+import io.ktor.server.routing.get
+import io.ktor.server.routing.routing
 import io.ktor.server.thymeleaf.Thymeleaf
 import io.ktor.server.thymeleaf.ThymeleafContent
-import kotlinx.css.*
-import kotlinx.html.*
+import kotlinx.css.Color
+import kotlinx.css.CssBuilder
+import kotlinx.css.Margin
+import kotlinx.css.backgroundColor
+import kotlinx.css.body
+import kotlinx.css.color
+import kotlinx.css.margin
+import kotlinx.css.px
+import kotlinx.html.body
+import kotlinx.html.h1
+import kotlinx.html.head
+import kotlinx.html.li
+import kotlinx.html.link
+import kotlinx.html.ul
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
 
 fun Application.configureTemplating() {
@@ -36,7 +53,7 @@ fun Application.configureTemplating() {
             call.respondCss {
                 body {
                     backgroundColor = Color.darkBlue
-                    margin(0.px)
+                    margin = Margin(0.px)
                 }
                 rule("h1.page-title") {
                     color = Color.white
@@ -62,8 +79,8 @@ fun Application.configureTemplating() {
     }
 }
 
-suspend inline fun ApplicationCall.respondCss(builder: CSSBuilder.() -> Unit) {
-    this.respondText(CSSBuilder().apply(builder).toString(), ContentType.Text.CSS)
+suspend inline fun ApplicationCall.respondCss(builder: CssBuilder.() -> Unit) {
+    this.respondText(CssBuilder().apply(builder).toString(), ContentType.Text.CSS)
 }
 
 
