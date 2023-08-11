@@ -1,6 +1,6 @@
 package dev.jianastrero.pages.template
 
-import dev.jianastrero.templating.BaseTemplate
+import dev.jianastrero.template.BaseTemplate
 import dev.jianastrero.theme.defineFont
 import kotlinx.html.BODY
 import kotlinx.html.HEAD
