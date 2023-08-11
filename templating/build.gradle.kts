@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.0"
+    id("io.ktor.plugin") version "2.3.3"
 }
 
 group = "dev.jianastrero"
@@ -11,6 +12,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
+    implementation("io.ktor:ktor-server-html-builder-jvm")
+    implementation("org.jetbrains.kotlin-wrappers:kotlin-css:1.0.0-pre.607")
 }
 
 tasks {
