@@ -32,7 +32,6 @@ abstract class BaseTemplate(
             meta(name = "description", content = this@BaseTemplate.title)
             meta(name = "author", content = author)
             meta(name = "keywords", content = keywords.joinToString(", "))
-            link(rel = "stylesheet", href = "app.css")
             beforeHead()
             insert(this@BaseTemplate.head)
             afterHead()
