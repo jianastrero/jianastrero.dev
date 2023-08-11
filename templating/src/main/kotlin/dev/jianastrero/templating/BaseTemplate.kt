@@ -19,8 +19,9 @@ open class BaseTemplate(
     private val keywords: Array<String> = arrayOf("Jian Astrero", "Jian", "Astrero", "Portfolio", "Jian Astrero's Portfolio"),
 ) : Template<HTML> {
 
-    val head = Placeholder<HEAD>()
+    open val head = Placeholder<HEAD>()
     val body = Placeholder<BODY>()
+
     override fun HTML.apply() {
         lang = "en"
 
