@@ -1,23 +1,26 @@
 package dev.jianastrero.pages.status
 
-import dev.jianastrero.pages.template.MyTemplate
+import dev.jianastrero.pages.template.SiteTemplate
 import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.ApplicationCall
 import io.ktor.server.html.respondHtmlTemplate
-import kotlinx.html.h1
+import kotlinx.html.div
+import kotlinx.html.span
 
 suspend fun ApplicationCall.notFound() {
     respondHtmlTemplate(
-        MyTemplate("404 - Jian Astrero's Portfolio"),
+        SiteTemplate("404"),
         status = HttpStatusCode.NotFound,
-        MyTemplate::notFound
+        SiteTemplate::notFound
     )
 }
 
-private fun MyTemplate.notFound() {
+private fun SiteTemplate.notFound() {
     body {
-        h1 {
-            +"404 - Page Not Found"
+        div(classes = "section") {
+            span(classes = "text-weight-black text-xlarge text-stroke") {
+                +"404"
+            }
         }
     }
 }
