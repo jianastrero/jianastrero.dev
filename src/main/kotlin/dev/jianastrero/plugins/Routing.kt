@@ -31,5 +31,6 @@ fun Application.configureRouting() {
         appCss()
         homeCss()
         staticFiles("icon", File("src/main/resources/static/icon"))
+        staticFiles("images", File("src/main/resources/static/images"))
     }
 }
