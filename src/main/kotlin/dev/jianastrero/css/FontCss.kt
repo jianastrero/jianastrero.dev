@@ -15,6 +15,9 @@ fun Routing.fontCss() {
 
 private fun CssBuilder.fontCss() {
     rule("*") {
-        fontFamily = "Montserrat, sans-serif"
+        fontFamily = "'Montserrat', sans-serif"
+    }
+    rule(".text-pacifico") {
+        fontFamily = "'Pacifico', cursive"
     }
 }

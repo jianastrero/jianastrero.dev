@@ -4,29 +4,23 @@ import dev.jianastrero.plugins.respondCss
 import io.ktor.server.application.call
 import io.ktor.server.routing.Routing
 import io.ktor.server.routing.get
-import kotlinx.css.Align
 import kotlinx.css.Color
 import kotlinx.css.CssBuilder
 import kotlinx.css.Cursor
-import kotlinx.css.Display
-import kotlinx.css.FlexDirection
-import kotlinx.css.JustifyContent
 import kotlinx.css.PointerEvents
 import kotlinx.css.UserSelect
-import kotlinx.css.alignItems
 import kotlinx.css.background
 import kotlinx.css.color
 import kotlinx.css.cursor
-import kotlinx.css.display
-import kotlinx.css.flexDirection
-import kotlinx.css.justifyContent
 import kotlinx.css.lineHeight
 import kotlinx.css.minHeight
 import kotlinx.css.opacity
+import kotlinx.css.pct
 import kotlinx.css.pointerEvents
 import kotlinx.css.properties.LineHeight
 import kotlinx.css.userSelect
 import kotlinx.css.vh
+import kotlinx.css.width
 import kotlinx.css.zIndex
 
 fun Routing.appCss() {
@@ -45,10 +39,6 @@ private fun CssBuilder.appCss() {
         background = "#000000"
     }
     rule(".section") {
-        display = Display.flex
-        flexDirection = FlexDirection.column
-        alignItems = Align.center
-        justifyContent = JustifyContent.center
         minHeight = 100.vh
     }
     rule(".default-gradient") {
@@ -70,8 +60,12 @@ private fun CssBuilder.appCss() {
     rule(".pointer-events-none") {
         pointerEvents = PointerEvents.none
     }
+    rule(".width-half") {
+        width = 50.pct
+    }
     textCss()
     headerCss()
     backdropCss()
     drawerCss()
+    flexBoxCss()
 }
