@@ -48,11 +48,14 @@ private fun SiteTemplate.homePage() {
                 img(
                     src = "${Constants.BASE_URL}/images/jianastrero.png",
                     alt = "Jian James Astrero",
-                    classes = "jian-image "
+                    classes = "jian-image"
                 ) {
 
                 }
             }
+        }
+        div(classes = "section") {
+
         }
     }
 }
