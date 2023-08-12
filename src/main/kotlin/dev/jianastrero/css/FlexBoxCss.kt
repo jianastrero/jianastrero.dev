@@ -6,6 +6,7 @@ import kotlinx.css.Flex
 import kotlinx.css.FlexDirection
 import kotlinx.css.JustifyContent
 import kotlinx.css.alignItems
+import kotlinx.css.alignSelf
 import kotlinx.css.display
 import kotlinx.css.flex
 import kotlinx.css.flexDirection
@@ -83,5 +84,28 @@ fun CssBuilder.flexBoxCss() {
     }
     rule(".justify-content-initial") {
         justifyContent = JustifyContent.initial
+    }
+
+    // Align Self
+    rule(".align-self-auto") {
+        alignSelf = Align.auto
+    }
+    rule(".align-self-center") {
+        alignSelf = Align.center
+    }
+    rule(".align-self-flex-start") {
+        alignSelf = Align.flexStart
+    }
+    rule(".align-self-flex-end") {
+        alignSelf = Align.flexEnd
+    }
+    rule(".align-self-initial") {
+        alignSelf = Align.initial
+    }
+    rule(".align-self-stretch") {
+        alignSelf = Align.stretch
+    }
+    rule(".align-self-baseline") {
+        alignSelf = Align.baseline
     }
 }

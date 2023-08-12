@@ -1,5 +1,6 @@
 package dev.jianastrero.pages.template
 
+import dev.jianastrero.Constants
 import dev.jianastrero.components.appDrawer
 import dev.jianastrero.components.appHeader
 import dev.jianastrero.js.appJs
@@ -13,7 +14,7 @@ import kotlinx.html.script
 
 class SiteTemplate(title: String) : BaseTemplate(title) {
     override fun HEAD.beforeHead() {
-        link(rel = "stylesheet", href = "app.css")
+        link(rel = "stylesheet", href = "${Constants.BASE_URL}/app.css")
         defineFont()
         script(
             type = ScriptType.textJavaScript,
