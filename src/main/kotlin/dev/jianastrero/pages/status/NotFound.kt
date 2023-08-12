@@ -18,7 +18,7 @@ suspend fun ApplicationCall.notFound() {
 private fun SiteTemplate.notFound() {
     body {
         div(classes = "section default-gradient") {
-            span(classes = "text-weight-black text-xlarge text-stroke") {
+            span(classes = "text-weight-black text-xlarge text-stroke unselectable") {
                 +"404"
             }
         }

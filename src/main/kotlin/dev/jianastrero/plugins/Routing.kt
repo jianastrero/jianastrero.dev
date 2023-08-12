@@ -7,18 +7,18 @@ import io.ktor.http.HttpStatusCode
 import io.ktor.server.application.Application
 import io.ktor.server.application.call
 import io.ktor.server.application.install
-import io.ktor.server.http.content.resources
-import io.ktor.server.http.content.static
+import io.ktor.server.http.content.staticFiles
 import io.ktor.server.plugins.autohead.AutoHeadResponse
 import io.ktor.server.plugins.statuspages.StatusPages
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
+import java.io.File
 
 fun Application.configureRouting() {
     install(AutoHeadResponse)
     install(StatusPages) {
-        status(HttpStatusCode.NotFound) {  call, _ ->
+        status(HttpStatusCode.NotFound) { call, _ ->
             call.notFound()
         }
         exception<Throwable> { call, cause ->
@@ -31,9 +31,6 @@ fun Application.configureRouting() {
         }
         fontCss()
         appCss()
-        // Static plugin. Try to access `/static/index.html`
-        static("/static") {
-            resources("static")
-        }
+        staticFiles("icon", File("src/main/resources/static/icon"))
     }
 }
