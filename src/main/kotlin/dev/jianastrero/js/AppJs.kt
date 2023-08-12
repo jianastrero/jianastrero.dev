@@ -15,6 +15,7 @@ fun BODY.appJs() {
                 const drawer = document.querySelector('#drawer');
 
                 var drawerOpen = false;
+                var isBurgerAnimating = false;
 
                 const burgerAnimation = bodymovin.loadAnimation({
                     container: burgerIcon,
@@ -41,22 +42,32 @@ fun BODY.appJs() {
                 function playOpenAnimation() {
                     const totalFrames = burgerAnimation.totalFrames;
                     drawerOpen = true;
+                    isBurgerAnimating = true;
                     burgerAnimation.playSegments([[0, totalFrames], false]);
+                    setTimeout(() => {
+                        isBurgerAnimating = false;
+                    }, 500);
                 }
 
                 function playCloseAnimation() {
                     const totalFrames = burgerAnimation.totalFrames;
                     drawerOpen = false;
+                    isBurgerAnimating = true;
                     burgerAnimation.playSegments([[totalFrames, 0], false]);
+                    setTimeout(() => {
+                        isBurgerAnimating = false;
+                    }, 500);
                 }
 
                 burgerIcon.addEventListener('click', () => {
-                    if (drawerOpen) {
-                        playCloseAnimation();
-                        hideDrawer();
-                    } else {
-                        playOpenAnimation();
-                        showDrawer();
+                    if (!isBurgerAnimating) {
+                        if (drawerOpen) {
+                            playCloseAnimation();
+                            hideDrawer();
+                        } else {
+                            playOpenAnimation();
+                            showDrawer();
+                        }
                     }
                 });
             """.trimIndent()

@@ -46,6 +46,7 @@ private fun CssBuilder.appCss() {
         zIndex = -1
     }
     rule(".unselectable") {
+        put("-webkit-user-select", "none")
         userSelect = UserSelect.none
     }
     rule(".cursor-pointer") {
