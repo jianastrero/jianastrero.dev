@@ -23,14 +23,9 @@ fun BODY.appHeader() {
             }
         }
         div(classes = "header-item") {
-            div {
+            div("cursor-pointer") {
                 id = "burgerIcon"
             }
-//            lottiePlayer(
-//                "burgerIcon",
-//                "${Constants.BASE_URL}/icon/burger.json",
-//                classes = "cursor-pointer"
-//            )
         }
     }
 }
